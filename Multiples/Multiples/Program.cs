@@ -13,29 +13,25 @@ namespace Multiples
             int userNumber;
             int numberMultiples= 0;
             int numberSum =0;
-            
-            Console.WriteLine("Введите число");
-            userNumber = Convert.ToInt32(Console.ReadLine());
+            int maxMultiples;
 
-            if (userNumber >=1 && userNumber <=27)
+            Random random = new Random();
+
+            userNumber = random.Next(1, 28);
+            maxMultiples = 1000 - userNumber;
+
+            for (int i = 0; numberSum < maxMultiples; i++)
             {
+                numberSum += userNumber;
 
-                while (numberSum < 1000 - userNumber)
-                {
-                    numberSum += userNumber;
-                    if (numberSum > 100)
-                        numberMultiples++;
-
-                }
-
-                Console.WriteLine("Количество кратных чисел:" + numberMultiples);
-                Console.WriteLine("Самое большое число:" + numberSum);
-            }
-            else
-            {
-                Console.WriteLine("Введите нормальное число");
+                if (numberSum > 100)
+                    numberMultiples++;
             }
 
+            Console.WriteLine("N = " + userNumber);
+            Console.WriteLine("Количество кратных чисел:" + numberMultiples);
+            Console.WriteLine("Самое большое число:" + numberSum);
+           
             Console.ReadKey();
         }
     }
