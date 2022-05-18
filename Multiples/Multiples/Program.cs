@@ -18,6 +18,7 @@ namespace Multiples
             int maxLimitRandomNumber = 27;
             int maxLimitMultiples = 1000;
             int minLimitMultiples = 100;
+
             Random randomNumber = new Random();
 
             userNumber = randomNumber.Next(minLimitRandomNumber, maxLimitRandomNumber + 1);
