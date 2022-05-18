@@ -12,25 +12,26 @@ namespace Multiples
         {
             int userNumber;
             int numberMultiples= 0;
-            int numberSum =0;
+            int sumOfNumber;
             int maxMultiples;
+            int minLimitRandomNumber = 1;
+            int maxLimitRandomNumber = 27;
+            int maxLimitMultiples = 1000;
+            int minLimitMultiples = 100;
+            Random randomNumber = new Random();
 
-            Random random = new Random();
+            userNumber = randomNumber.Next(minLimitRandomNumber, maxLimitRandomNumber + 1);
+            maxMultiples = maxLimitMultiples - userNumber;
 
-            userNumber = random.Next(1, 28);
-            maxMultiples = 1000 - userNumber;
-
-            for (int i = 0; numberSum < maxMultiples; i++)
+            for (sumOfNumber = 0; sumOfNumber < maxMultiples; sumOfNumber += userNumber)
             {
-                numberSum += userNumber;
-
-                if (numberSum > 100)
+                if (sumOfNumber > minLimitMultiples)
                     numberMultiples++;
             }
 
             Console.WriteLine("N = " + userNumber);
             Console.WriteLine("Количество кратных чисел:" + numberMultiples);
-            Console.WriteLine("Самое большое число:" + numberSum);
+            Console.WriteLine("Самое большое число:" + sumOfNumber);
            
             Console.ReadKey();
         }
